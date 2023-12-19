@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>J Query</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+            </style>
+    </head>
+    <body>
+<script>
+     $(document).ready(function()
+     {
+         $("#myInput1").on("keyup",function()
+         {
+             var value= $(this).val().toLowerCase();
+             $("tr").filter(function() {
+               $(this).toggle($(this).find("#name").text().toLowerCase().indexOf(value)>-1)
+             });
+         });
+         $("#myInput2").on("keyup",function()
+         {
+             var value= $(this).val().toLowerCase();
+             $("tr").filter(function() {
+               $(this).toggle($(this).find("#lname").text().toLowerCase().indexOf(value)>-1)
+             });
+         });
+         $("#myInput3").on("keyup",function()
+         {
+             var value= $(this).val().toLowerCase();
+             $("tr").filter(function() {
+               $(this).toggle($(this).find("#email").text().toLowerCase().indexOf(value)>-1)
+             });
+         });
+     });
+
+
+</script>
+
+
+<h2>Filterable Table</h2>
+<p>Type something in the input field to search the table for first names:</p>  
+<input id="myInput1" type="text" placeholder="Search..">
+<br><br>
+<p></p>
+<p>Type something in the input field to search the table for last names:</p>  
+<input id="myInput2" type="text" placeholder="Search..">
+<p></p>
+<p>Type something in the input field to search the table for emails:</p>  
+<input id="myInput3" type="text" placeholder="Search..">
+<table>
+  <thead>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Email</th>
+  </tr>
+  </thead>
+  <tbody id="myTable">
+  <tr>
+    <td id="name">John</td>
+    <td id="lname">Doe</td>
+    <td id="email">john@example.com</td>
+  </tr>
+  <tr>
+    <td id="name">Mary</td>
+    <td id="lname">Moe</td>
+    <td id="email">mary@mail.com</td>
+  </tr>
+  <tr>
+    <td id="name">July</td>
+    <td id="lname">Dooley</td>
+    <td id="email">july@greatstuff.com</td>
+  </tr>
+  <tr>
+    <td id="name">Anja</td>
+    <td id="lname">Ravendale</td>
+    <td id="email">a_r@test.com</td>
+  </tr>
+  </tbody>
+</table>
+    </body>
+</html>
